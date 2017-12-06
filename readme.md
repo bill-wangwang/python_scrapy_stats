@@ -1,4 +1,4 @@
-# sql
+# sql 建表语句
 ```
 CREATE TABLE `2016_area` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
