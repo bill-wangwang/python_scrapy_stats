@@ -9,7 +9,6 @@ class Area2Spider(scrapy.Spider):
     name = "area3"
 
     def start_requests(self):
-        urls = []
         db = pymysql.connect("127.0.0.1", "root", "123456", "stats", charset="utf8")
         cur = db.cursor(cursor=pymysql.cursors.DictCursor)
         sql = "select href from 2016_area where level=2"

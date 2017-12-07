@@ -10,7 +10,6 @@ class Area2Spider(scrapy.Spider):
     base_url = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/'
 
     def start_requests(self):
-        urls = []
         db = pymysql.connect("127.0.0.1", "root", "123456", "stats", charset="utf8")
         cur = db.cursor(cursor=pymysql.cursors.DictCursor)
         sql = "select href from 2016_area where parent_id=0"

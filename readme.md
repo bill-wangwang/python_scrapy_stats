@@ -1,5 +1,25 @@
-# 建表sql
+# 使用说明
+- 该爬虫为2016年最新的统计数据（这是本人学python以来第一次完成的练手项目，要求别太高^_^）
+- 环境要求 python3 + scrapy1.4 
+- 使用步骤
+    - 导入下面的sql语句(注意host为localhost user为root 密码为123456)
+    - 进入工作目录（cd到与scrapy.cfg所在的目录）
+    - scrapy crawl area1
+    - scrapy crawl area2
+    - scrapy crawl area3
+    - scrapy crawl area4
+    - scrapy crawl area5
+    - 执行到area5时需要注意改下 settings.py 中的 ITEM_PIPELINES （具体见注意事项）
+    - 以上命令必须按顺序一个个执行，并且等前一个执行完成才可以执行后面的
+
+
+
+# 建库建表sql
 ```
+
+CREATE DATABASE IF NOT EXISTS `stats` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `stats`;
+
 CREATE TABLE `2016_area` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`area_id` BIGINT(10) UNSIGNED NOT NULL COMMENT '行政区域id（身份证前6位）',
