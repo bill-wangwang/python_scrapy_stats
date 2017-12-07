@@ -22,11 +22,12 @@ class Area2Spider(scrapy.Spider):
     def parse(self, response):
         item = AreaItem()
         area_id_list = response.xpath(".//tr[@class='citytr']/td[1]/a/text()").extract()
-        name_list    = response.xpath(".//tr[@class='citytr']/td[2]/a/text()").extract()
-        href_list    = response.xpath(".//tr[@class='citytr']/td[2]/a/@href").extract()
+        name_list = response.xpath(".//tr[@class='citytr']/td[2]/a/text()").extract()
+        href_list = response.xpath(".//tr[@class='citytr']/td[2]/a/@href").extract()
         for area_id, name, href in zip(area_id_list, name_list, href_list):
             item["area_id"] = area_id
             item["name"] = name
+            item["level"] = 2
             item["href"] = self.base_url + href
             item["parent_id"] = os.path.dirname(href)
             yield item
